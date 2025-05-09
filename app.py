@@ -49,12 +49,12 @@ if uploaded_file is not None:
             X = clean_data.select_dtypes(include="number")
 
             model = joblib.load("rf_model.pkl")
-            df["Theft_Prediction"] = model.predict(X)
+            df["Theft Prediction"] = model.predict(X)
 
             st.subheader("📊 Prediction Results")
-            st.dataframe(df[["LCLid", "KWH/hh (per half hour)", "Theft_Prediction"]])
+            st.dataframe(df[["LCLid", "KWH/hh (per half hour)", "Theft Prediction"]])
 
-            theft_count = df["Theft_Prediction"].value_counts()
+            theft_count = df["Theft Prediction"].value_counts()
             fig, ax = plt.subplots()
             sns.barplot(x=theft_count.index, y=theft_count.values, ax=ax)
             ax.set_xticklabels(["No Theft", "Theft"])
