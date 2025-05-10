@@ -1,31 +1,57 @@
-# ⚡ Energy Theft Detector
+# Energy Theft Detector
 
-A machine learning-powered web application to detect electricity theft based on half-hourly energy usage profiles.
+This is a machine learning web application that detects potential energy theft from household electricity usage data.
 
-## 🚀 Features
+## 🔍 Features
+- Upload your `.csv` dataset
+- View live predictions of suspected energy theft
+- See tabular outputs with a clean "Theft Prediction" column
 
-- Upload `.csv` files containing electricity usage data
-- Detect suspicious usage patterns using a trained Random Forest model
-- Display theft predictions instantly
-- Streamlit-powered web interface
+## 🚀 Live App
+[https://energy-theft-detector.streamlit.app/](https://energy-theft-detector.streamlit.app/)
 
-## 🧪 How It Works
+## 🗂️ File Structure
+```
+project_root/
+├── app.py
+├── rf_model.pkl
+├── new_profiles.csv
+├── predictions.csv
+├── step1_select_users.py
+├── step1_train_model.py
+├── step6_test_model.py
+├── requirements.txt
+├── .gitignore
+└── sample_with_thefts.csv
+```
 
-1. A Random Forest model is trained on a labeled dataset with simulated theft.
-2. The app takes new data with features like:
-   - Mean energy usage
-   - Standard deviation
-   - Minimum and maximum usage
-3. The model predicts whether usage is **normal** or **suspicious**.
+## ⚙️ Setup & Run Locally
 
-## 📊 Demo
+1. Clone the repository
+```bash
+git clone https://github.com/niazaslani/energy-theft-detector.git
+cd energy-theft-detector
+```
 
-🌐 Live App: [energy-theft-detector.streamlit.app](https://energy-theft-detector.streamlit.app/)
+2. Install dependencies
+```bash
+pip install -r requirements.txt
+```
 
-Upload a `.csv` file like:
+3. Run the app
+```bash
+streamlit run app.py
+```
 
-```csv
-LCLid,KWH/hh (per half hour)
-Test001,0.45
-Test002,0.30
-Test003,0.60
+## 📌 Requirements
+- Python 3.8+
+- Streamlit
+- pandas
+- scikit-learn
+- joblib
+
+## 🧠 Model Info
+The model was trained using a Random Forest classifier on energy consumption data with synthetic balancing for theft vs non-theft records.
+
+## 📄 License
+This project is open source and available under the [MIT License](LICENSE).
