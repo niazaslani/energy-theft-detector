@@ -49,6 +49,8 @@ streamlit run app.py
 - pandas
 - scikit-learn
 - joblib
+- matplotlib
+- seaborn
 
 ## 🧠 Model Info
 The model was trained using a Random Forest classifier on energy consumption data with synthetic balancing for theft vs non-theft records.
